@@ -24,7 +24,7 @@ public class NeuralNetwork
     //the maximum iterations
     public static int maxIterations = 300;
     //the threashold
-    public static double threshold = 0.95;
+    public static double threshold = 0.05;
     //the location of the training data
     public static String inputTrainingData = "Training_Data";
     //the location of the testing data
@@ -232,7 +232,7 @@ public class NeuralNetwork
     {
         rmsErrors.clear();
         double rmsError = 1;
-        for (int i = 0; rmsError > 1-threshold && rmsErrors.size() < maxIterations; i++)
+        for (int i = 0; rmsError > threshold && rmsErrors.size() < maxIterations; i++)
         {
             double errors = 0;
             for(TTData data : trainingData)
@@ -584,7 +584,7 @@ public class NeuralNetwork
                 //set the threshold
                 case 2:
                     clearScreen();
-                    System.out.println("Please enter a threshold between 0 (worst) and 1 (best)\n\n");
+                    System.out.println("Please enter a threshold between 0 (best) and 1 (worst)\n\n");
                     System.out.print("Threshold: ");
                     while(sc.hasNext())
                     {
